@@ -16,14 +16,18 @@ void countPulse(){
 
 void setup() {
   Serial.begin(9600);
+  delay(1000);
+  Serial.println("Arduino started!");
   Serial.print("Enter the rate per minute (multiples of 3): ");
-  while (Serial.available() == 0){}
-  rate = Serial.parseInt();
-  while (rate%3 != 0) {
-    Serial.print("Enter the rate per minute (multiples of 3): ");
-    while (Serial.available() == 0){}
+while (true) {
+  if (Serial.available() > 0) {
     rate = Serial.parseInt();
+    if (rate > 0 && rate % 3 == 0) {
+      break;
+    }
+    Serial.println("Invalid rate. Enter a positive multiple of 3:");
   }
+}
   pwm = 150;
   pinMode(PWMA, OUTPUT);
   pinMode(AIN1, OUTPUT);
