@@ -29,15 +29,15 @@ while (true) {
   }
 }
   if (rpm < 28){
-    pwm = 150;
-  } else if (rpm < 56){
+    pwm = 50;
+  } else if (rpm >= 28 && rpm < 56){
     pwm = 100;
-  } else if (rpm < 84) {
+  } else if (rpm >= 56 && rpm < 84) {
     pwm = 150;
-  } else if (rpm <112 ){
-    pwm = 180;
-  } else {
+  } else if (rpm >= 84 && rpm <112 ){
     pwm = 200;
+  } else {
+    pwm = 225;
   }
   pinMode(PWMA, OUTPUT);
   pinMode(AIN1, OUTPUT);
