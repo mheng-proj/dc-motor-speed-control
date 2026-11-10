@@ -1,5 +1,5 @@
 # dc-motor-speed-control
-It calculates the speed of the motor and adjusts to the wanted speed. I built it to understand if power perfectly correlates with speed.
+It calculates the speed of a motor and adjusts it to reach the desired speed. I built this project to understand whether electrical power and motor speed are perfectly correlated.
 
 # Components Used
 
@@ -12,23 +12,24 @@ It calculates the speed of the motor and adjusts to the wanted speed. I built it
 
 # How It Works
 
-The Code Wheel/Slot disc is inserted into the white stick that stick out of the Yellow TT Motor. The Code Wheel/Slot disc is then rotated on top of the IR speed sensor as the motor rotates being connected to a battery.
+The Code Wheel / Slotted Disc is attached to the white shaft sticking out of the Yellow TT Motor. As the motor rotates, the disc spins above the IR speed sensor, which detects the slots and generates signals.
+
+The Arduino uses these signals to calculate the motor's RPM. It then compares the measured RPM with the desired speed and adjusts the PWM input to regulate the motor.
 
 # Challenges Encountered
 
-Problem 1: Speed Change
+Problem 1: Slow Speed Adjustment
 
-Issue: The speed change is too slow
+Issue: The motor took too long to reach the desired speed.
 
-Cause: My code only plus 1 and minus 1 to the designated speed that the user inputs.
+Cause: My initial code only increased or decreased the PWM value by one unit at a time.
 
-Solution: Depending on the value of the rpm entered. I entered the different values of pwm using if conditions. The pwm values are correlated with the table.
+Solution: Depending on the desired RPM entered by the user, I used if conditions to assign different PWM values. These PWM values are correlated with the results in the table.
 
 # Testing and Results
 
 Check Table.jpg
 
 # What I Learned
-
-I was able to understand how different components respond to each other based on feedback systems.
+I was able to understand how different components respond to each other in a feedback control system. I also learned how PWM affects motor speed and how RPM measurements can be used to regulate it.
 
