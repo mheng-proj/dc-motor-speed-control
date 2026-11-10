@@ -28,7 +28,17 @@ while (true) {
     Serial.println("Invalid rate. Enter a positive multiple of 3:");
   }
 }
-  pwm = 150;
+  if (rpm < 28){
+    pwm = 150;
+  } else if (rpm < 56){
+    pwm = 100;
+  } else if (rpm < 84) {
+    pwm = 150;
+  } else if (rpm <112 ){
+    pwm = 180;
+  } else {
+    pwm = 200;
+  }
   pinMode(PWMA, OUTPUT);
   pinMode(AIN1, OUTPUT);
   pinMode(AIN2, OUTPUT);
